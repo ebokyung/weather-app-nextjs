@@ -3,7 +3,11 @@ export const metadata = {
   description: '날씨 앱 만들기 - nextjs typescript',
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html>
       <body>{children}</body>
