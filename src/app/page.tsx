@@ -8,10 +8,10 @@ export default function Home() {
       <button>캐시 비우기</button>
       <ul>
         <li>
-          <Link href="/weather/seoul">서울의 날씨는 ...</Link>
+          <Link href="/seoul">서울의 날씨는 ...</Link>
         </li>
         <li>
-          <Link href="/weather/hongkong">홍콩의 날씨는 ...</Link>
+          <Link href="/hongkong">홍콩의 날씨는 ...</Link>
         </li>
       </ul>
     </>
