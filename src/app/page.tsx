@@ -1,10 +1,13 @@
-import Link from 'next/link'
 import getCurrentTime from '../../utils/getCurrentTime'
-import getCurrentWeather from '../../utils/getCurrentWeather'
+import CurrentWeatherItem from './components/CurrentWeatherItem'
+import { City } from '../../types/city'
 
 export default async function Home() {
   const currentTime = await getCurrentTime()
-  const currentWeather = await getCurrentWeather('Seoul')
+  const cities: City[] = [
+    { name: '서울', code: 'seoul' },
+    { name: '홍콩', code: 'hongkong' },
+  ]
 
   return (
     <>
@@ -12,16 +15,15 @@ export default async function Home() {
       <p>현재 시간은 {currentTime.dateTime}</p>
       <button>캐시 비우기</button>
       <ul>
-        <li>
-          <Link href="/seoul">
-            서울의 날씨는 {currentWeather.current.condition.text}
-          </Link>
-        </li>
-        <li>
-          <Link href="/hongkong">
-            홍콩의 날씨는 {currentWeather.current.condition.text}
-          </Link>
-        </li>
+        {cities.map((city) => {
+          return (
+            <CurrentWeatherItem
+              key={city.code}
+              cityName={city.name}
+              cityCode={city.code}
+            />
+          )
+        })}
       </ul>
     </>
   )
