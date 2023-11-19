@@ -1,5 +1,6 @@
 import { getForecastWeatherDb } from '../../../utils/getForecastWeather'
 import ForecastWeatherItem from '../components/ForecastWeatherItem'
+import HomeButton from '../components/HomeButton'
 
 type Props = { params: { city: 'seoul' } }
 
@@ -20,7 +21,7 @@ export default async function Detail({ params }: Props) {
           )
         })}
       </ul>
-      <button>홈으로</button>
+      <HomeButton />
     </>
   )
 }
