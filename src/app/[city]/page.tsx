@@ -1,4 +1,5 @@
 import { getForecastWeatherDb } from '../../../utils/getForecastWeather'
+import ForecastWeatherItem from '../components/ForecastWeatherItem'
 
 type Props = { params: { city: 'seoul' } }
 
@@ -11,9 +12,11 @@ export default async function Detail({ params }: Props) {
       <ul>
         {forecastWeatherDays?.forecast.forecastday.map((day) => {
           return (
-            <li key={day.date}>
-              {day.date}의 평균 온도는 {day.day.avgtemp_c} 입니다.
-            </li>
+            <ForecastWeatherItem
+              city={cityCode}
+              date={day.date}
+              avgTemp={day.day.avgtemp_c}
+            />
           )
         })}
       </ul>
